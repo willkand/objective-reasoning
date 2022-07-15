@@ -18,7 +18,7 @@ if statemnt to check if admin or not
 // IsAdmin
 
 function isAdmin(user){
-    if(user.userRole === 'Admin'){
+    if(user.userRole === 'ADMIN'){
         return true;
     } else {
         return false
@@ -28,38 +28,41 @@ function isAdmin(user){
 // getEmail
 
 function getEmail(user){
-    return user.firstName.toLowerCase() + "," + user.lastName.toLowerCase() + "@codeimmersives";
+    return user.firstName.toLowerCase() + "." + user.lastName.toLowerCase() + "@codeimmersives.com";
 }
 
 // getPlayListLength
 
-function getPlayListLength (playlist){
-    return playlist.songs.length;;
+function getPlaylistLength (playlist){
+    return playlist.songs.length;
 }
 
 // getHardestHoemwork
 
-function getHardestHoemwork (arr){
+function getHardestHomework (arr) {
     let lowScore = 100;
     let Homework = "";
 
     for (let i = 0; i < arr.length; i++){
         const score = arr[i].averageScore
-        if (score < lowScore){
-            lowestScore = score; 
+        if (score < lowScore) {
+            lowScore = score; 
             Homework = arr[i].name
         }
     }
     return Homework
+}
 
 // createPhonebook
 
-function createPhonebook (numbs, names){
-    let phonebook = {}
-    for (let i = 0; i < names.length; i++){
-        phonebook[names[i]] = numbs[i]
+function createPhonebook (namesArr, phoneNum, phonebook = {}){
+  
+    for (let i = 0; i < namesArr.length; i++){
+        
+        let names = namesArr[i]
+        let phoneNums = phoneNum[i]
+        phonebook[names] = phoneNums
     }
-}
     return phonebook;
 }
 
